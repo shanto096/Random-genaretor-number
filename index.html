@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Generator Number</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-amber-100">
+    <div class="grid sm:grid-cols-2 grid-cols-1 sm:gap-12 gap-5 mx-10 mt-5">
+        <div class="grid grid-rows-2 bg-slate-400 justify-items-center gap-18 sm:h-[43rem] h-[30rem] rounded">
+            <h1 class="bg-zinc-300 pl-4 py-3 w-7/12 mt-14 font-bold rounded h-12 flex justify-between"><span id="pin-generator" ></span> <svg class="h-5 w-5 text-gray-600 mr-3 "  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg></h1> 
+            <button id="generator-btn" class="border-4 border-sky-500 rounded-[50%] w-40 h-40 text-3xl font-bold focus:bg-green-600 hover:bg-green-400 focus:text-white ">Generate Pin</button>
+
+            <div class="flex items-center pl-4 rounded-2xl border border-gray-600 dark:border-gray-400 h-14 w-7/12 bg-green-500 hidden ">
+                <input checked id="checkbox-1" type="" value="x" class="h-6 w-6 text-blue-600 bg-withe rounded font-bold text-3xl text-red-500">
+                <label for="bordered-checkbox-2" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Pin Didn't match</label>
+            </div>
+            <div class="flex items-center pl-4 rounded-2xl border border-gray-600 dark:border-gray-400 h-14 w-7/12 bg-green-500 hidden ">
+                <input checked id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" class="w-6 h-6 text-blue-600 bg-gray-600 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="bordered-checkbox-2" class="py-2 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Pin  matched</label>
+            </div>
+        </div>
+
+        <div id="all-input" class="bg-slate-400 grid sm:grid-cols-3 grid-cols-3 gap-5 sm:grid-rows-6 grid-rows- justify-items-center rounded sm:h-[43rem] h-[30rem] mb-5">
+                <input type="" value="" class="col-span-3 bg-zinc-300 mt-10 mb-5 w-7/12 h-12 rounded">
+                <input type="button" value="7" class="bg-zinc-500 hover:bg-zinc-600 focus:bg-zinc-700 focus:text-white sm:w-24 w-20 sm:h-24 h-10 text-2xl font-bold rounded-xl sm:ml-60 ml-2  ">
+                <input type="button" value="8" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 text-2xl font-bold rounded-xl">
+                <input type="button" value="9" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 text-2xl font-bold rounded-xl sm:mr-60 mr-2 ">
+                <input type="button" value="4" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 sm:h-24 h-10 text-2xl font-bold rounded-xl sm:ml-60 ml-2">
+                <input type="button" value="5" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 text-2xl font-bold rounded-xl">
+                <input type="button" value="6" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 text-2xl font-bold rounded-xl sm:mr-60 mr-2">
+                <input type="button" value="1" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 sm:h-24 h-10 text-2xl font-bold rounded-xl sm:ml-60 ml-2">
+                <input type="button" value="2" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 text-2xl font-bold rounded-xl ">
+                <input type="button" value="3" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 text-2xl font-bold rounded-xl sm:mr-60 mr-2">
+                <input type="button" value=">" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 sm:h-24 h-10 text-2xl font-bold rounded-xl sm:ml-60 ml-2">
+                <input type="button" value="0" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 text-2xl font-bold rounded-xl ">
+                <input type="button" value="C" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20  text-2xl font-bold rounded-xl sm:mr-60 ">
+                <button class="bg-green-400 hover:bg-green-600 focus:bg-green-700 focus:text-white col-span-3 rounded-xl w-6/12 h-12 text-2xl font-bold mb-10 mt-5">Submit</button>
+                
+    </div>
+      </div>
+
+
+      <script>
+          
+          const GeneratorBtn = document.getElementById("generator-btn")
+
+          function generator() {
+            let pin = Math.round(Math.random()*10000)
+            let newPin =pin +"";
+            if (newPin.length === 4) {
+                return pin;  
+            }else{
+                return generator();
+            }
+          }
+
+          GeneratorBtn.addEventListener('click', function () {
+            const GeneratorPin = document.getElementById("pin-generator")
+            GeneratorPin.innerText = generator()
+          })
+
+         document.getElementById("all-input").addEventListener('click',function () {
+            
+            
+         })
+      </script>
+</body>
+</html>

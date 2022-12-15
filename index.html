@@ -24,7 +24,7 @@
         </div>
 
         <div id="all-input" class="bg-slate-400 grid sm:grid-cols-3 grid-cols-3 gap-5 sm:grid-rows-6 grid-rows- justify-items-center rounded sm:h-[43rem] h-[30rem] mb-5">
-                <input type="" value="" class="col-span-3 bg-zinc-300 mt-10 mb-5 w-7/12 h-12 rounded">
+                <input id="show-pin" type="" value="" class="col-span-3 bg-zinc-300 mt-10 mb-5 w-7/12 h-12 rounded">
                 <input type="button" value="7" class="bg-zinc-500 hover:bg-zinc-600 focus:bg-zinc-700 focus:text-white sm:w-24 w-20 sm:h-24 h-10 text-2xl font-bold rounded-xl sm:ml-60 ml-2  ">
                 <input type="button" value="8" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 text-2xl font-bold rounded-xl">
                 <input type="button" value="9" class="bg-zinc-500 hover:bg-zinc-600 sm:w-24 focus:bg-zinc-700 focus:text-white w-20 text-2xl font-bold rounded-xl sm:mr-60 mr-2 ">
@@ -46,6 +46,8 @@
       <script>
           
           const GeneratorBtn = document.getElementById("generator-btn")
+          const showPin = document.getElementById("show-pin")
+
 
           function generator() {
             let pin = Math.round(Math.random()*10000)
@@ -62,10 +64,11 @@
             GeneratorPin.innerText = generator()
           })
 
-         document.getElementById("all-input").addEventListener('click',function () {
-            
-            
-         })
+         document.getElementById("all-input").addEventListener('click',function ( event) {
+            let show = event.target.value;
+            let allshowpin = showPin.value + show
+             showPin.value = allshowpin;
+             })
       </script>
 </body>
 </html>

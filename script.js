@@ -30,11 +30,11 @@ document.getElementById("all-input").addEventListener('click',function ( event) 
       if (x === y) {
           document.getElementById('checkbox1').style.visibility = "visible";
           // const checkbox1 = document.getElementById('checkbox1')
-          // checkbox1.style.visibility ="visible"
-          // console.log(checkbox1);
+          // checkbox1.style.visibility ="visible"S
       }else{
           const checkbox2 = document.getElementById('checkbox2')
           checkbox2.style.visibility ="visible"
+
       }
   })
 

@@ -1,6 +1,6 @@
 const GeneratorBtn = document.getElementById("generator-btn")
 const inputPin = document.getElementById("input-pin")
-
+const allValue =document.getElementById("all-input")
 
 function generator() {
   let pin = Math.round(Math.random()*10000)
@@ -17,10 +17,16 @@ GeneratorBtn.addEventListener('click', function () {
   GeneratorPin.innerText = generator()
 })
 
-document.getElementById("all-input").addEventListener('click',function ( event) {
-  let show = event.target.value;
-  let showpin =inputPin.value +show;
-  inputPin.value = showpin;
+allValue.addEventListener('click',function ( event) {
+
+  if ( event.target.value === "undefine") {
+    inputPin.value ="";
+  }else{
+    let show = event.target.value;
+    let showpin =inputPin.value +show;
+    inputPin.value = showpin;
+  }
+  
    })
 
   document.getElementById("submitBtn").addEventListener('click',function () {
